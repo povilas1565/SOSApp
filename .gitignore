@@ -1,0 +1,4 @@
+node_modules
+.insomnia_backup
+src/database/index.js
+.env
