@@ -15,7 +15,7 @@ const authLoginValidation = require('../validations/auth/login');
 const volCreateValidation = require('../validations/volunteers/create');
 const appointCreateValidation = require('../validations/appointments/create');
 const clientCreateValidation = require("../validations/clients/create");
-const chatsCreateValidation = require("../validations/chats/create")
+const chatCreateValidation = require("../validations/chats/create")
 
 // Routes
 const routes = express.Router();
@@ -42,7 +42,7 @@ routes.post("/appointments", auth, handleError, appointCreateValidation, appoint
 // Chats routes
 routes.get("/chat", chatsController.listChats);
 routes.get("/chat/:id", chatsController.findChat);
-routes.post("/chat", auth, handleError, chatsCreateValidation, chatsController.createChat);
+routes.post("/chat", auth, handleError, chatCreateValidation, chatsController.createChat);
 
 
 // Login

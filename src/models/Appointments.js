@@ -1,9 +1,9 @@
 import {DataTypes} from "sequelize";
 import db from "../database"
-const Clients = require("./Clients");
-const Volunteers = require("./Volunteers");
+const Client = require("./Clients");
+const Volunteer = require("./Volunteers");
 
-const Appointments = db.connection.define(
+const Appointment = db.connection.define(
     "Appointments",
     {
         idAppointments: {
@@ -15,7 +15,7 @@ const Appointments = db.connection.define(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: Volunteers,
+                model: Volunteer,
                 key: "idVolunteers",
             },
         },
@@ -23,7 +23,7 @@ const Appointments = db.connection.define(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: Clients,
+                model: Client,
                 key: "idClients",
             },
         },
@@ -46,4 +46,4 @@ const Appointments = db.connection.define(
     }
 );
 
-module.exports = Appointments;
+module.exports = Appointment;
