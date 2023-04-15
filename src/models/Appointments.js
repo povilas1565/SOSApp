@@ -1,5 +1,5 @@
-import {DataTypes} from "sequelize";
-import db from "../database"
+const db = require ("../database");
+const {DataTypes} = require("sequelize");
 const Client = require("./Clients");
 const Volunteer = require("./Volunteers");
 

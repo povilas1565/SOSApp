@@ -1,5 +1,5 @@
-import {DataTypes} from "sequelize";
-import db from "../database";
+const db = require("../database");
+const {DataTypes} = require("sequelize");
 
 const Clients = db.connection.define("Clients", {
     idClients: {
