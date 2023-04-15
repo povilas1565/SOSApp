@@ -28,10 +28,10 @@ const appointmentController = {
         try  {
             const { clientId, appointmentDate, note } = req.body;
             console.log(req.auth);
-            const psychologist = req.auth;
+            const volunteer = req.auth;
 
             const newAppointment = await AppointmentsModel.create({
-                psychologistId: psychologist.id,
+                volunteerId: volunteer.id,
                 clientId,
                 appointmentDate,
                 note
