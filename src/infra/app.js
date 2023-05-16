@@ -1,7 +1,9 @@
+const dotenv = require('dotenv');
+const path = require('path')
+dotenv.config({ debug: true, override: true })
+dotenv.config({ debug: true, path: path.resolve(__dirname, '../../.env.local'), override: true })
 const Express = require("express");
 const routes = require("../routes");
-const dotenv = require('dotenv');
-dotenv.config();
 const handleError = require("../middlewares/handleError")
 const swaggerUi = require('swagger-ui-express')
 const db = require("../database");
