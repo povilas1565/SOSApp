@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index",
     "dev": "nodemon ./src/index.js",
-    "dbbuild": "npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all",
+    "dbbuild": "npx sequelize db:create",
     "dbrebuild": "npx sequelize db:drop && npm run dbbuild"
   },
   "keywords": [
