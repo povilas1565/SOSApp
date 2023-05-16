@@ -14,7 +14,7 @@ const config = {
   app: {
     port: parseInt(process.env.APP_PORT, 10) || 3000,
   },
-  key: process.env.SECRET || 'your_default_secret_key'
+  key: process.env.SECRET || 'your_secret_key'
 };
 
 module.exports = config;
