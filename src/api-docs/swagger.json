@@ -19,6 +19,7 @@
       "description": "Localhost for Development"
     }
   ],
+
   "paths": {
     "/volunteers": {
       "get": {
@@ -63,8 +64,8 @@
           }
         }
       }
-      },
-     "/volunteers/:id" : {
+    },
+    "/volunteers/:id" : {
       "get": {
         "tags": [
           "Volunteers"
@@ -287,30 +288,30 @@
           }
         }
       }
-      },
-      "/appointments:/id": {
-        "get": {
-          "tags": [
-            "Appointments"
-          ],
-          "description": "Find appointments",
-          "operationId": "getAppointments by Id",
-          "responses": {
-            "200": {
-              "description": "OK"
-            },
-            "401": {
-              "description": "Unauthorized"
-            },
-            "403": {
-              "description": "Forbidden"
-            },
-            "404": {
-              "description": "Not Found"
-            }
+    },
+    "/appointments:/id": {
+      "get": {
+        "tags": [
+          "Appointments"
+        ],
+        "description": "Find appointments",
+        "operationId": "getAppointments by Id",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
-      },
+      }
+    },
     "/chats": {
       "get": {
         "tags": [
@@ -377,8 +378,31 @@
           }
         }
       }
+  },
+  "/login": {
+    "post": {
+      "tags": [
+        "Login"
+      ],
+      "description": "Login",
+      "operationId": "postLogin",
+      "responses": {
+        "201": {
+          "description": "Registered"
+        },
+        "401": {
+          "description": "Unauthorized"
+        },
+        "403": {
+          "description": "Forbidden"
+        },
+        "404": {
+          "description": "Not Found"
+        }
+      }
     }
-    },
-    "components": {}
   }
+  },
+  "components": {}
+}
 

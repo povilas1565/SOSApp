@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index",
     "dev": "nodemon ./src/index.js",
-    "dbbuild": "npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all",
+    "dbbuild": "npx sequelize db:create",
     "dbrebuild": "npx sequelize db:drop && npm run dbbuild"
   },
   "keywords": [
@@ -27,7 +27,7 @@
     "joi": "^17.7.0",
     "jsonwebtoken": "^9.0.0",
     "mysql2": "^3.2.0",
-    "sequelize": "^6.27.0",
+    "sequelize": "^6.31.1",
     "swagger-ui-express": "^4.6.2"
   },
   "devDependencies": {

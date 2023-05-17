@@ -2,8 +2,8 @@ require('dotenv').config();
 
 const config = {
   db: {
-    name: process.env.DB_NAME || 'database_name',
-    user: process.env.DB_USER || 'username',
+    name: process.env.DB_NAME || 'database.name',
+    user: process.env.DB_USER || 'user',
     pass: process.env.DB_PASS || 'password',
     config: {
       dialect: process.env.DB_DIALECT || 'mysql',
@@ -14,7 +14,7 @@ const config = {
   app: {
     port: parseInt(process.env.APP_PORT, 10) || 3000,
   },
-  key: process.env.SECRET || 'your_default_secret_key'
+  key: process.env.SECRET || 'you secret key'
 };
 
 module.exports = config;
