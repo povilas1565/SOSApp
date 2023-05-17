@@ -1,3 +1,5 @@
 node_modules
 .insomnia_backup
 .idea
+.env.local
+.env.development
