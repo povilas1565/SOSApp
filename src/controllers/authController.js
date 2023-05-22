@@ -21,7 +21,7 @@ const AuthController = {
         const id = volunteer.idVolunteers;
 
         const token = jwt.sign({
-                idPsychologists: id,
+                idVolunteers: id,
                 email: volunteer.email,
                 name: volunteer.name
             },
