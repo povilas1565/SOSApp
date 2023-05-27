@@ -15,13 +15,13 @@ const chatController = {
                 },
             });
             if (!chat) {
-                throw error;
-            };
+                error;
+            }
             res.status(200).json(chat);
 
         } catch (error) {
             return res.status(404).json("Id not found");
-        };
+        }
     },
 
     createChat: async (req, res) => {
@@ -40,7 +40,7 @@ const chatController = {
             res.json(newChat);
         } catch (error) {
             res.json(error);
-        };
+        }
     },
 };
 

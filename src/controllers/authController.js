@@ -25,7 +25,7 @@ const AuthController = {
                 email: volunteer.email,
                 name: volunteer.name
             },
-            config.key
+                config.key
         );
 
         return res.json(token);

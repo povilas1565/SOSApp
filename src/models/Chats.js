@@ -1,3 +1,4 @@
+
 const db = require("../database");
 const {DataTypes} = require("sequelize");
 const Client = require("./Clients");
