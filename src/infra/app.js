@@ -1,7 +1,6 @@
 const dotenv = require('dotenv');
 const path = require('path')
-dotenv.config({ debug: true, override: true })
-dotenv.config({ debug: true, path: path.resolve(__dirname, '../../.env'), override: true })
+dotenv.config()
 const Express = require("express");
 const routes = require("../routes");
 const handleError = require("../middlewares/handleError")
