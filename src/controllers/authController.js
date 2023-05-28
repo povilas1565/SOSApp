@@ -18,10 +18,10 @@ const AuthController = {
             return res.status(401).json("Invalid credentials, verify and try again");
         }
 
-        const id = volunteer.idVolunteers;
+        const id = volunteer.id;
 
         const token = jwt.sign({
-                idVolunteers: id,
+                id: id,
                 email: volunteer.email,
                 name: volunteer.name
             },

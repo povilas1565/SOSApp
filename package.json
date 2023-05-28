@@ -8,7 +8,7 @@
     "start": "node src/index",
     "dev": "nodemon ./src/index.js",
     "dbbuild": "npx sequelize db:create",
-    "dbrebuild": "npx sequelize db:drop && npm run dbbuild",
+    "dbrebuild": "npx sequelize db:drop && npm run dbbuild && npm run dbmigrate",
     "dbmigrate": "npx sequelize db:migrate"
   },
   "keywords": [
