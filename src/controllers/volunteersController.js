@@ -12,7 +12,7 @@ const volunteersController = {
             const { id } = req.params;
             const volunteer = await VolunteersModel.findOne({
                 where: {
-                    idVolunteers: id,
+                    id: id,
                 },
             });
 
@@ -46,7 +46,7 @@ const volunteersController = {
         try {
             const volunteer = await VolunteersModel.findOne({
                 where: {
-                    idVolunteers: id,
+                    id: id,
                 },
             });
 
@@ -65,7 +65,7 @@ const volunteersController = {
                 },
                 {
                     where: {
-                        idVolunteers: id,
+                        id: id,
                     },
                 }
             );
@@ -81,7 +81,7 @@ const volunteersController = {
 
             const volunteer = await VolunteersModel.findOne({
                 where: {
-                    idVolunteers: id,
+                    id: id,
                 },
             });
 
@@ -90,7 +90,7 @@ const volunteersController = {
             } else {
                 VolunteersModel.destroy({
                     where: {
-                        idVolunteers: id,
+                        id: id,
                     },
                 });
                 res.sendStatus(204);

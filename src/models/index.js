@@ -5,35 +5,35 @@ const Volunteers = require("./Volunteers");
 
 // Indicate all the relationships between entities
 Volunteers.hasMany(Appointments, {
-    foreignKey: "idVolunteers",
+    foreignKey: "id",
 });
 
 Clients.hasMany(Appointments, {
-    foreignKey: "idClients",
+    foreignKey: "id",
 });
 
 Volunteers.hasMany(Chats, {
-    foreignKey: "idVolunteers",
+    foreignKey: "id",
 });
 
 Clients.hasMany(Chats, {
-    foreignKey: "idClients",
+    foreignKey: "id",
 });
 
 Appointments.belongsTo(Volunteers, {
-    foreignKey: "idVolunteers",
+    foreignKey: "id",
 });
 
 Appointments.belongsTo(Clients, {
-    foreignKey: "idClients",
+    foreignKey: "id",
 });
 
 Chats.belongsTo(Volunteers, {
-    foreignKey: "idVolunteers",
+    foreignKey: "id",
 });
 
 Chats.belongsTo(Clients, {
-    foreignKey: "idClients",
+    foreignKey: "id",
 });
 
 
