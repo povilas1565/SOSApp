@@ -48,4 +48,7 @@ routes.post("/chat", auth, handleError, chatCreateValidation, chatsController.cr
 // Login
 routes.post("/login", authLoginValidation, authController.login);
 
+// Register
+routes.post("/register", authRegisterValidation, authController.register);
+
 module.exports = routes;
