@@ -6,7 +6,7 @@ services:
     image: mysql:8
     restart: unless-stopped
     env_file:
-      - ./.env
+      - .env.example
     environment:
       - MYSQL_ROOT_PASSWORD=$DB_PASS
       - MYSQL_DATABASE=$DB_NAME
@@ -23,7 +23,7 @@ services:
       dockerfile: Dockerfile
     restart: unless-stopped
     env_file:
-      - ./.env
+      - .env.example
     volumes:
       - .:/usr/src/app
     expose:
