@@ -26,7 +26,7 @@ const chatController = {
 
     createChat: async (req, res) => {
         try  {
-            const {chatDate, message} = req.body;
+            const {chatDate, messages} = req.body;
             console.log(req.auth);
             const client = req.auth;
             const volunteer = req.auth;
@@ -35,7 +35,7 @@ const chatController = {
                 volunteerId: volunteer.id,
                 clientId: client.id,
                 chatDate,
-                message
+                messages
             });
             res.json(newChat);
         } catch (error) {
