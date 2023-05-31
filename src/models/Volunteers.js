@@ -9,7 +9,7 @@ const Volunteers = db.connection.define(
             primaryKey: true,
             autoIncrement: true
         },
-        nameVolunteer: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -18,7 +18,7 @@ const Volunteers = db.connection.define(
                 },
             },
         },
-        emailVolunteer: {
+        email: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
