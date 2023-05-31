@@ -15,8 +15,12 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000",
-      "description": "Localhost for Development"
+      "url": "http://localhost:4000",
+      "description": "Development"
+    },
+    {
+      "url": "https://sos.luden-labs.com",
+      "description": "Production"
     }
   ],
 

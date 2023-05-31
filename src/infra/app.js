@@ -1,14 +1,13 @@
 const dotenv = require('dotenv');
 const path = require('path')
-dotenv.config({ debug: true, override: true })
-dotenv.config({ debug: true, path: path.resolve(__dirname, '../../.env'), override: true })
+dotenv.config()
 const Express = require("express");
 const routes = require("../routes");
 const handleError = require("../middlewares/handleError")
 const swaggerUi = require('swagger-ui-express')
 const db = require("../database");
 const config = require('../configs/config');
-const cors = require('cors')
+const corsMiddleware = require('../middlewares/cors')
 const swaggerDocument = require('../api-docs/swagger.json');
 
 class App {
@@ -23,7 +22,7 @@ class App {
     db.hasConnection();
     const selectedPort = options.port ? options.port : this.defaultPort;
     this.instance.use(Express.json());
-    this.instance.use(cors());
+    this.instance.use(corsMiddleware);
     this.instance.use(routes);
     this.instance.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
     this.instance.use(handleError);

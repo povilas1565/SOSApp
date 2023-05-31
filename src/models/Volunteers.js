@@ -2,14 +2,14 @@ const db = require("../database");
 const {DataTypes} = require("sequelize");
 
 const Volunteers = db.connection.define(
-    "Volunteers",
+    "volunteers",
     {
-        idVolunteers: {
+        id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        nameVolunteer: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -18,7 +18,7 @@ const Volunteers = db.connection.define(
                 },
             },
         },
-        emailVolunteer: {
+        email: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
@@ -41,10 +41,7 @@ const Volunteers = db.connection.define(
             },
         },
     },
-    {
-        tableName: "volunteers",
-        timestamps: false,
-    }
+    { timestamps: false }
 );
 
 module.exports = Volunteers;

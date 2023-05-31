@@ -16,7 +16,7 @@ const clientsController = {
             const { id } = req.params;
             const uniqueClient = await ClientsModel.findOne({
                 where: {
-                    idClients: id,
+                    id: id,
                 },
             });
 
@@ -59,7 +59,7 @@ const clientsController = {
 
             const uniqueClient = await ClientsModel.findOne({
                 where: {
-                    idClients: id,
+                    id: id,
                 },
             });
 
@@ -74,7 +74,7 @@ const clientsController = {
                     },
                     {
                         where: {
-                            idClients: id,
+                            id: id,
                         },
                     }
                 );
@@ -92,7 +92,7 @@ const clientsController = {
 
             const uniqueClient = await ClientsModel.findOne({
                 where: {
-                    idClients: id,
+                    id: id,
                 },
             });
 
@@ -101,7 +101,7 @@ const clientsController = {
             } else {
                 ClientsModel.destroy({
                     where: {
-                        idClients: id,
+                        id: id,
                     },
                 });
 

@@ -4,9 +4,9 @@ const Client = require("./Clients");
 const Volunteer = require("./Volunteers");
 
 const Appointment = db.connection.define(
-    "Appointments",
+    "appointments",
     {
-        idAppointments: {
+        id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
@@ -14,18 +14,12 @@ const Appointment = db.connection.define(
         volunteerId: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            references: {
-                model: Volunteer,
-                key: "idVolunteers",
-            },
+            references: { model: "volunteers", key: "id" },
         },
         clientId: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            references: {
-                model: Client,
-                key: "idClients",
-            },
+            references: { model: "clients", key: "id" },
         },
         appointmentDate: {
             type: DataTypes.DATE,
@@ -40,10 +34,7 @@ const Appointment = db.connection.define(
             type: DataTypes.STRING,
         },
     },
-    {
-        tableName: "appointments",
-        timestamps: false,
-    }
+    { timestamps: false }
 );
 
 module.exports = Appointment;

@@ -1,0 +1,41 @@
+version: "3.8"
+volumes:
+  db:
+services:
+  db:
+    image: mysql:8
+    restart: unless-stopped
+    env_file:
+      - .env.example
+    environment:
+      - MYSQL_ROOT_PASSWORD=$DB_PASS
+      - MYSQL_DATABASE=$DB_NAME
+    ports:
+      - $MYSQLDB_LOCAL_PORT:$DB_PORT
+    volumes:
+      - db:/var/lib/mysql
+  app:
+    depends_on:
+      - db
+    container_name: sos-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file:
+      - .env.example
+    volumes:
+      - .:/usr/src/app
+    expose:
+      - $APP_PORT
+    ports:
+      - $NODE_LOCAL_PORT:$APP_PORT
+    environment:
+      - DB_HOST=db
+      - DB_USER=$DB_USER
+      - DB_PASSWORD=$DB_PASS
+      - DB_NAME=$DB_NAME
+      - DB_PORT=$DB_PORT
+    stdin_open: true
+    tty: true
+    command: npm run dev

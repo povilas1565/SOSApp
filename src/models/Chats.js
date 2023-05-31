@@ -5,9 +5,9 @@ const Client = require("./Clients");
 const Volunteer = require("./Volunteers");
 
 const Chat = db.connection.define(
-    "Chats",
+    "chats",
     {
-        idChats: {
+        id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
@@ -15,18 +15,12 @@ const Chat = db.connection.define(
         volunteerId: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            references: {
-                model: Volunteer,
-                key: "idVolunteers",
-            },
+            references: { model: "volunteers", key: "id" },
         },
         clientId: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            references: {
-                model: Client,
-                key: "idClients",
-            },
+            references: { model: "clients", key: "id" },
         },
         chatDate: {
             type: DataTypes.DATE,
@@ -41,10 +35,7 @@ const Chat = db.connection.define(
             type: DataTypes.STRING,
         },
     },
-    {
-        tableName: "chats",
-        timestamps: false,
-    }
+    { timestamps: false }
 );
 
 module.exports = Chat;
