@@ -12,6 +12,7 @@ const auth = require('../middlewares/auth');
 const requestLog = require('../middlewares/requestLog');
 const handleError = require('../middlewares/handleError');
 const authLoginValidation = require('../validations/auth/login');
+const registerLoginValidation = require('../validations/auth/register');
 const volCreateValidation = require('../validations/volunteers/create');
 const appointCreateValidation = require('../validations/appointments/create');
 const clientCreateValidation = require("../validations/clients/create");
@@ -47,5 +48,8 @@ routes.post("/chat", auth, handleError, chatCreateValidation, chatsController.cr
 
 // Login
 routes.post("/login", authLoginValidation, authController.login);
+
+// Register
+routes.post("/register", registerLoginValidation, authController.register)
 
 module.exports = routes;

@@ -5,6 +5,22 @@ const bcrypt = require('bcryptjs');
 
 const AuthController = {
 
+    async register(req, res) {
+        const {name, email, password, introduction} = req.body;
+
+        const newHashedPassword = bcrypt.hashSync(password, 10);
+
+        const volunteer = await VolunteersModel.create({
+            where: {
+                name_vol: name,
+                email_vol: email,
+                password: newHashedPassword,
+                introduction,
+            },
+        });
+        res.status(201).json(volunteer);
+    },
+
     async login(req, res) {
         const { email , password } = req.body;
 
