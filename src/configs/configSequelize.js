@@ -3,7 +3,7 @@ const config = require("./config");
 module.exports = {
   "development": {
     "username": config.db.user,
-    "password": config.db.password,
+    "password": config.db.pass,
     "database": config.db.name,
     "host": config.db.config.host,
     "port": config.db.config.port,
@@ -11,7 +11,7 @@ module.exports = {
   },
   "test": {
     "username": config.db.user,
-    "password": config.db.password,
+    "password": config.db.pass,
     "database": config.db.name,
     "host": config.db.config.host,
     "port": config.db.config.port,
@@ -19,7 +19,7 @@ module.exports = {
   },
   "production": {
     "username": config.db.user,
-    "password": config.db.password,
+    "password": config.db.pass,
     "database": config.db.name,
     "host": config.db.config.host,
     "port": config.db.config.port,
