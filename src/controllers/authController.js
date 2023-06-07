@@ -8,13 +8,11 @@ const AuthController = {
     async register(req, res) {
         const {name, email, password, introduction} = req.body;
 
-        const newHashedPassword = bcrypt.hashSync(password, 10);
-
         const volunteer = await VolunteersModel.create({
             where: {
                 name,
                 email,
-                password: newHashedPassword,
+                password,
                 introduction,
             },
         });
@@ -22,7 +20,7 @@ const AuthController = {
     },
 
     async login(req, res) {
-        const { email , password } = req.body;
+        const {email , password} = req.body;
 
         const volunteer = await VolunteersModel.findOne({
             where: {
