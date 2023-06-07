@@ -8,15 +8,7 @@ const AuthController = {
     async register(req, res) {
         const {name, email, password, introduction} = req.body;
 
-        const volunteer = await VolunteersModel.create({
-            where: {
-                name,
-                email,
-                password,
-                introduction,
-            },
 
-        const newHashedPassword = bcrypt.hashSync(password, 10);
         const volunteer = await VolunteersModel.create({
             name,
             email,
@@ -36,8 +28,6 @@ const AuthController = {
                 email,
             },
         });
-
-        const volunteer = await VolunteersModel.findOne({where: {email: email}});
 
 
         if (!volunteer || !bcrypt.compareSync(password, volunteer.password)) {
