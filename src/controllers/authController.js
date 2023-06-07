@@ -12,8 +12,8 @@ const AuthController = {
 
         const volunteer = await VolunteersModel.create({
             where: {
-                name_vol: name,
-                email_vol: email,
+                name,
+                email,
                 password: newHashedPassword,
                 introduction,
             },
@@ -26,7 +26,7 @@ const AuthController = {
 
         const volunteer = await VolunteersModel.findOne({
             where: {
-                email_vol: email,
+                email,
             },
         });
 
