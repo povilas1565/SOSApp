@@ -7,7 +7,7 @@ try {
     dbConnection = new Sequelize(
         config.db.name,
         config.db.user,
-        config.db.pass,
+        config.db.password,
         config.db.config
     );
 } catch (error) {
