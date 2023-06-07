@@ -15,6 +15,14 @@ const AuthController = {
                 password,
                 introduction,
             },
+
+        const newHashedPassword = bcrypt.hashSync(password, 10);
+        const volunteer = await VolunteersModel.create({
+            name,
+            email,
+            password: newHashedPassword,
+            introduction,
+
         });
         res.status(201).json(volunteer);
     },
@@ -22,11 +30,15 @@ const AuthController = {
     async login(req, res) {
         const {email , password} = req.body;
 
+
         const volunteer = await VolunteersModel.findOne({
             where: {
                 email,
             },
         });
+
+        const volunteer = await VolunteersModel.findOne({where: {email: email}});
+
 
         if (!volunteer || !bcrypt.compareSync(password, volunteer.password)) {
             return res.status(401).json("Invalid credentials, verify and try again");
@@ -39,7 +51,7 @@ const AuthController = {
                 email: volunteer.email,
                 name: volunteer.name
             },
-                config.key
+            config.key
         );
 
         return res.json(token);
