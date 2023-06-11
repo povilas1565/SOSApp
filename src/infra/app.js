@@ -22,10 +22,10 @@ class App {
     db.hasConnection();
     const selectedPort = options.port ? options.port : this.defaultPort;
     this.instance.use(Express.json());
+    this.instance.use(handleError);
     this.instance.use(corsMiddleware);
     this.instance.use(routes);
     this.instance.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-    this.instance.use(handleError);
 
     if (options.isTest) return;
 

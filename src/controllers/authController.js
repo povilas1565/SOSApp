@@ -4,17 +4,17 @@ const config = require('../configs/config');
 const bcrypt = require('bcryptjs');
 
 const AuthController = {
-
     async register(req, res) {
         const {name, email, password, introduction} = req.body;
 
-
+        const hash = bcrypt.hash(password, 10).then(hash => hash)
         const volunteer = await VolunteersModel.create({
             name,
             email,
-            password,
+            password: hash,
             introduction,
         });
+        console.log(volunteer)
         res.status(201).json(volunteer);
     },
 
